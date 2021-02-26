@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>✏️ Design tenets for vision docs - Vision Squared</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="../vision.html"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../vision/tenets.html" class="active"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="../vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="../vision/status_quo.html"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="../vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="../vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="../vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="../design_docs.html"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="../conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Vision Squared</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="-design-tenets-for-async"><a class="header" href="#-design-tenets-for-async">✏️ Design tenets for async</a></h1>
+<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
+<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
+</tbody></table>
+<p><strong>Draft status.</strong> These tenets are a first draft. nikomatsakis plans to incorporate feedback and revise them before they are finalized.</p>
+<p>The design tenets describe the key principles that drive our work on async. Hopefully, we are able to achieve and honor all of them all of the time. Sometimes, though, they come into conflict, and we have to pick -- in that case, we prefer the tenet earlier in the list.</p>
+<ol>
+<li><strong>Minimal overhead.</strong> Rust Async I/O performance should compare favourably with any other language. In the extreme case, it should be possible to use async/await without any required allocation, although this is unlikely to be a common case in production systems.</li>
+<li><strong>Easy to get started, but able to do anything you want.</strong> We should make it simple to write Async I/O code and get things that work reasonably well, but it should be possible for people to obtain fine-grained control as needed.</li>
+<li><strong>Async is like sync, but with blocking points clearly identified.</strong> At the highest level, writing a simple program using asynchronous I/O in Rust should be analogous to writing one that uses synchronous I/O, except that one adds <code>async</code> in front of function declarations and adds <code>.await</code> after each call. We should aim for analogous design between synchronous and asynchronous equivalents. Similarly, streams should be like asynchronous iterators. One should be able to use the same sort of combinators with streams and to iterate over them in analogous ways.</li>
+<li><strong>No one true runtime.</strong> We need to be able to hook into existing runtimes in different environments, from embedded environments to runtimes like node.js. Specialized systems need specialized runtimes. </li>
+<li><strong>Library ecosystem is key.</strong> We want to have a strong ecosystem of async crates, utilities, and frameworks. This will require mechanisms to write libraries/utilities/frameworks that are generic and interoperable across runtimes.</li>
+</ol>
+<h2 id="extreme-use-cases"><a class="header" href="#extreme-use-cases">Extreme use cases</a></h2>
+<p>To elaborate on the &quot;minimal overhead&quot; and &quot;easy to get started, but able to do anything you want&quot; tenet, here are a set of use cases:</p>
+<ul>
+<li><strong>Single-threaded executors:</strong> Some systems tie each task to a single thread; such tasks should be able to access data that is not <code>Send</code> or <code>Sync</code>, and the executor for those tasks should be able to be fully optimized to avoid atomic accesses, etc.</li>
+<li><strong>Multi-threaded executors:</strong> Many systems migrate tasks between threads transparently, and that should be supported as well, though tasks will be required to be <code>Send</code>.</li>
+<li><strong>&quot;Bring your own runtime&quot;:</strong> The Rust language itself should not require that you start threads, use epoll, or do any other particular thing.</li>
+<li><strong>Zero allocation, single task:</strong> Embedded systems might want to be able to have a single task that is polled to completion and which does no allocation whatsoever.</li>
+<li><strong>Multiple runtimes in one process:</strong> Sometimes people have to combine systems, each of which come with their own event loop. We should avoid assuming there is one global event loop in the system. </li>
+<li><strong>Non-Rust based runtimes:</strong> Sometimes people want to integrate into event loops from other, non-Rust-based systems.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../vision.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../vision/characters.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../vision.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../vision/characters.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

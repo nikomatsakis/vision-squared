@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>👋🏽 Welcome - Vision Squared</title>
+        <title>🔮 The vision - Vision Squared</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="vision.html"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vision/tenets.html"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="vision/status_quo.html"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="design_docs.html"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="vision.html" class="active"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vision/tenets.html"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="vision/status_quo.html"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="design_docs.html"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,31 +163,48 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="-welcome"><a class="header" href="#-welcome">👋🏽 Welcome</a></h1>
-<p>Welcome to the Vision² website!</p>
-<p><strong>Leads</strong>: <a href="https://github.com/nikomatsakis">@nikomatsakis</a> and Shane Miller</p>
-<h2 id="what-is-this"><a class="header" href="#what-is-this">What is this?</a></h2>
-<p>The Vision² is a &quot;vision doc for vision docs&quot;. Vision docs are an experimental way to help build and establish consensus for open source projects -- though really they could work for any distributed project.</p>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p>Licensed under either of</p>
+                        <h1 id="-the-vision"><a class="header" href="#-the-vision">🔮 The vision</a></h1>
+<h2 id="what-is-this"><a class="header" href="#what-is-this">What is this</a></h2>
+<p>This section lays out a general vision and set of goals for Async I/O in Rust. This document is being written in January of 2021. The core pieces of async-await are stable, but there remains a lot of work for it to feel like a &quot;first class&quot; feature of Rust. </p>
+<p>This section describes three things:</p>
 <ul>
-<li>Apache License, Version 2.0 (<a href="LICENSE-APACHE">LICENSE-APACHE</a> or http://www.apache.org/licenses/LICENSE-2.0)</li>
-<li>MIT license (<a href="LICENSE-MIT">LICENSE-MIT</a> or http://opensource.org/licenses/MIT)</li>
+<li>The <strong>design tenets</strong>, or principles, that we are using to drive our work on Async I/O in Rust;</li>
+<li>Descriptions of how writing Async I/O code in Rust <strong>feels today</strong>;</li>
+<li>Descriptions of how we think writing Async I/O code in Rust <strong>should feel eventually</strong>.</li>
 </ul>
-<p>at your option.</p>
-<h3 id="contribution"><a class="header" href="#contribution">Contribution</a></h3>
-<p>Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in this crate by you, as defined in the Apache-2.0 license, shall
-be dual licensed as above, without any additional terms or conditions.</p>
+<h2 id="status-and-schedule"><a class="header" href="#status-and-schedule">Status and schedule</a></h2>
+<p><strong>This document is currently being formed.</strong> 
+We expect to publish the first version on March 31.
+Once that version is published, we intend to revisit the document once per quarter to keep it up to date.</p>
+<table><thead><tr><th>Phase</th><th>Date</th></tr></thead><tbody>
+<tr><td><strong>Drafting initial stories and proposals</strong></td><td><strong>until March 31</strong></td></tr>
+<tr><td>2021 Q1 revision published</td><td>March 31</td></tr>
+<tr><td>2021 Q2 revision process begins</td><td>June 14 - June 30</td></tr>
+<tr><td>2021 Q2 revision published</td><td>June 30</td></tr>
+<tr><td>2021 Q3 revision process begins</td><td>Sep 13 - Sep 30</td></tr>
+<tr><td>2021 Q3 revision published</td><td>Sep 30</td></tr>
+<tr><td>2021 Q4 revision process begins</td><td>Nov 29 - Dec 10</td></tr>
+<tr><td>2021 Q4 revision published</td><td>Dec 10</td></tr>
+</tbody></table>
+<h2 id="think-big----too-big-if-you-have-to"><a class="header" href="#think-big----too-big-if-you-have-to">Think big -- too big, if you have to</a></h2>
+<p>You'll notice that the ideas in this document are <strong>maximalist and ambitious</strong>. They stake out an opinionated position on how the ergonomics of Async I/O should feel. This position may not, in truth, be attainable, and for sure there will be changes along the way. Sometimes the realities of how computers actually work may prevent us from doing all that we'd like to. That's ok. This is a dream and a goal.</p>
+<h2 id="the-vision-drives-the-work"><a class="header" href="#the-vision-drives-the-work">The vision drives the work</a></h2>
+<p>The vision is not just idle speculation. It is the central document that we use to organize ourselves. When we think about our <a href="./roadmap.html">roadmap</a> for any given year, it is always with the aim of moving us closer to the vision we lay out here. </p>
+<h2 id="this-is-a-group-effort"><a class="header" href="#this-is-a-group-effort">This is a group effort</a></h2>
+<p>As the leads of the Async Foundation group, Niko and Tyler are driving and organizing this document. But writing it and shaping it is a group effort. If you think there is a part of the async experience that is not reflected here, we want to hear from you! Check out the <a href="./vision/how_to_vision_doc.html">How to vision doc</a> for more details on how to contribute.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="welcome.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="vision.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="vision/tenets.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -199,9 +216,13 @@ be dual licensed as above, without any additional terms or conditions.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="welcome.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="vision.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="vision/tenets.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

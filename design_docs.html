@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>👋🏽 Welcome - Vision Squared</title>
+        <title>🔬 Design docs - Vision Squared</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="vision.html"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vision/tenets.html"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="vision/status_quo.html"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="design_docs.html"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="vision.html"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vision/tenets.html"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="vision/status_quo.html"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="design_docs.html" class="active"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,31 +163,35 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="-welcome"><a class="header" href="#-welcome">👋🏽 Welcome</a></h1>
-<p>Welcome to the Vision² website!</p>
-<p><strong>Leads</strong>: <a href="https://github.com/nikomatsakis">@nikomatsakis</a> and Shane Miller</p>
-<h2 id="what-is-this"><a class="header" href="#what-is-this">What is this?</a></h2>
-<p>The Vision² is a &quot;vision doc for vision docs&quot;. Vision docs are an experimental way to help build and establish consensus for open source projects -- though really they could work for any distributed project.</p>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p>Licensed under either of</p>
+                        <h1 id="-design-documents"><a class="header" href="#-design-documents">🔬 Design documents</a></h1>
+<p>The <strong>design documents</strong> (or &quot;design docs&quot;, more commonly) describe potential designs. These docs vary greatly in terms of their readiness to be implemented:</p>
 <ul>
-<li>Apache License, Version 2.0 (<a href="LICENSE-APACHE">LICENSE-APACHE</a> or http://www.apache.org/licenses/LICENSE-2.0)</li>
-<li>MIT license (<a href="LICENSE-MIT">LICENSE-MIT</a> or http://opensource.org/licenses/MIT)</li>
+<li>Early on, they describe a vague idea for a future. Often this takes the shape of capturing constraints on the solution, rather than the solution itself.</li>
+<li>When a feature is getting ready to ship, they can evolve into a full blown RFC, with links to tracking issues or other notes.</li>
 </ul>
-<p>at your option.</p>
-<h3 id="contribution"><a class="header" href="#contribution">Contribution</a></h3>
-<p>Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in this crate by you, as defined in the Apache-2.0 license, shall
-be dual licensed as above, without any additional terms or conditions.</p>
+<h2 id="early-stage-design-docs"><a class="header" href="#early-stage-design-docs">Early stage design docs</a></h2>
+<p>In the early stages, design docs are meant to capture interesting bits of &quot;async design space&quot;. They are often updated to capture the results of a fruitful conversation or thread which uncovered contraints or challenges in solving a particular problem. They will capture a combination of the following:</p>
+<ul>
+<li>use cases;</li>
+<li>interesting aspects to the design;</li>
+<li>alternatives;</li>
+<li>interactions with other features.</li>
+</ul>
+<h2 id="late-stage-design-docs"><a class="header" href="#late-stage-design-docs">Late stage design docs</a></h2>
+<p>As a design progresses, the doc should get more and more complete, until it becomes something akin to an RFC. (Often, at that point, we will expand the design document into a directory, adding an actual RFC draft and other contents; those things can live in this repo or elsewhere, depending.) Once we decide to put a design doc onto the roadmap, it will also contain links to tracking issues or other places to track the status.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="vision/how_to_vision_doc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="vision.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="conversations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -199,9 +203,13 @@ be dual licensed as above, without any additional terms or conditions.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="vision/how_to_vision_doc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="vision.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="conversations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

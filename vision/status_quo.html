@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>😱 Status quo - Vision Squared</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="../vision.html"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../vision/tenets.html"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="../vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="../vision/status_quo.html" class="active"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="../vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="../vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="../vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="../design_docs.html"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="../conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Vision Squared</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="-status-quo-stories"><a class="header" href="#-status-quo-stories">😱 Status quo stories</a></h1>
+<h2 id="what-is-this"><a class="header" href="#what-is-this">What is this</a></h2>
+<p>The &quot;status quo&quot; stores are here to state our &quot;theory of the case&quot;. That is, they present (and prove) our hypotheses as to what the various challenges are for users of Async I/O in Rust. These hypotheses are presented in narrative form, by telling the story of a specific <a href="./characters.html">character</a> as they try (and typically fail in dramatic fashion) to achieve their goals.</p>
+<h3 id="based-on-a-true-story"><a class="header" href="#based-on-a-true-story">Based on a true story</a></h3>
+<p>These stories are not made up. They are always based on real-life experiences of actual people. Each story contains a &quot;Frequently Asked Questions&quot; section, and that will include notes the sources used to create the story. In some cases, it may link to notes or summaries in the <a href="../conversations.html">conversations</a> section, though that is not required. The &quot;Frequently Asked Questions&quot; section also contains a summary of what the &quot;morals&quot; of the story are (i.e., what are the key takeaways), along with answers to questions that people have raised along the way.</p>
+<h3 id="the-stories-provide-data-we-use-to-prioritize-not-a-prioritization-itself"><a class="header" href="#the-stories-provide-data-we-use-to-prioritize-not-a-prioritization-itself">The stories provide data we use to prioritize, not a prioritization itself</a></h3>
+<p><strong>Just because a user story is represented here doesn't mean we're going to be able to fix it right now.</strong> Some of these user stories will indicate more severe problems than others. As we consider the stories, we'll select some subset to try and address; that choice is reflected in the <a href="./roadmap.html">roadmap</a>.</p>
+<h3 id="help-wanted"><a class="header" href="#help-wanted">Help wanted!</a></h3>
+<p>This is not a static document! There are lots of ways you can help to expand it! Take a look at the <a href="./how_to_vision_doc.html">How to Vision Doc</a> for more details.</p>
+<h2 id="alan-has-trouble-getting-started"><a class="header" href="#alan-has-trouble-getting-started">Alan has trouble getting started</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a></td><td><a href="./shiny_future.html#alan-has-a-blast-standing-up-a-web-server">Alan has a blast standing up a web server</a></td><td>Shane and estebank</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>At first, <a href="./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a> can't find docs about how to do async stuff</li>
+<li>Alan finds learning Rust challenging enough, learning async at the same time is even harder (<a href="https://twitter.com/richardsabow/status/1345815115745140736">cite</a>)</li>
+<li>Alan has trouble picking a runtime, it's kind of overwhelming -- <a href="https://twitter.com/EchoRior/status/1359965313979346944">what if he picks the wrong one?</a></li>
+<li>Alan is confused because adding async/await doesn't seem to be getting him concurrency</li>
+<li>Alan tries to connect to a database but the docs aren't very comprehensive</li>
+<li>Alan doesn't like the web framework he's using, but the one he likes requires a different runtime, and switching between them is a real pain</li>
+<li>Alan quits and becomes a <a href="https://www.pbs.org/show/best-joy-painting/">Bob Ross</a> groupy</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>Many people cite that picking a runtime is a stressful choice.</li>
+<li>People want to be able to 'mix and match' the runtime, web framework, and other libraries and have things just work.</li>
+<li>Information on async-await is hard to find and not yet well integrated into standard Rust learning materials.</li>
+<li>Rust's async model is different from other languages (JavaScript, C#) and that can be confusing.</li>
+<li>Learning async Rust is strictly more work than learning sync Rust, which is already harder than we'd like.</li>
+<li>The async book as written gives way too many low-level details way too early.</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>Not at all. This is based on a number of sources, including tweets but also personal conversations.</li>
+<li>Some sources can be found in the conversations page:
+<ul>
+<li><a href="../conversations/2021-02-12-Twitter-Thread.html">2021-02-12 Twitter thread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Why doesn't Alan go to the tutorial for some specific runtime?</strong>
+<ul>
+<li>It's true that there are a number of excellent tutorials out there, like the one from <a href="https://tokio.rs/tokio/tutorial">tokio</a> and <a href="https://book.async.rs/tutorial/index.html">async-std</a>. Unfortunately, Alan doesn't know about those runtimes yet! Alan wants to learn Rust, so that's where he started.</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="alan-finds-the-experience-of-writing-async-code-is-a-lot-more-painful-than-sync-code"><a class="header" href="#alan-finds-the-experience-of-writing-async-code-is-a-lot-more-painful-than-sync-code">Alan finds the experience of writing async code is a lot more painful than sync code</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a></td><td>not yet written</td><td>✋ <a href="./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li><a href="./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a> gets inscrutable backtraces</li>
+<li>Alan tries to write a recursive function and gets a weird error</li>
+<li>Alan gets confusing diagnostics because of incompatible versions of the futures crate</li>
+<li>Alan gets a confusing compiler error about a variable being live across an await point that doesn’t seem to be live</li>
+<li>Bobs gets an error message that exceeds the memory limits in his terminal program, crashes his computer, and forces him to reboot</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-tries-to-write-a-stream-and-pin-breaks-her-mind"><a class="header" href="#grace-tries-to-write-a-stream-and-pin-breaks-her-mind">Grace tries to write a stream and pin breaks her mind</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td><a href="./shiny_future.html#grace-discovers-the-joy-of-generators">Grace discovers the joy of generators</a></td><td>✋ <a href="./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>We need to make this better -- pick some specific problem Grace was trying to solve</li>
+<li>She winds up implementing a stream and has to use pin and it's hard</li>
+<li>we don’t currently provide any language support for doing this</li>
+<li>so you have to work with pin</li>
+<li>it is very confusing and nobody really understands it</li>
+<li>she doesn’t get parallel like she wanted</li>
+<li>she switches to a stream of futures </li>
+<li>it kind of works but it’s a pain to maintain and she doesn’t like fixing bugs in that code
+<ul>
+<li>she transfers to another team and somebody else deletes the file, starts over, and repeats her experience</li>
+</ul>
+</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-deploys-her-service-and-hits-obstacles"><a class="header" href="#grace-deploys-her-service-and-hits-obstacles">Grace deploys her service and hits obstacles</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td><a href="./shiny_future.html#grace-deploys-her-service-and-is-able-to-fix-problems">Grace deploys her service and is able to fix problems</a></td><td>pnkfelix?</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>She gets stack traces from her production users and they are 10s of KB and she can’t make heads or tails of them
+<ul>
+<li>Back in the olden days of C# they were able to fix bugs more often than not based just on the stack trace, but now they can’t even figure out what code it is talking about</li>
+</ul>
+</li>
+<li>Tasks are stuck</li>
+<li>Performance is good but one customer has 10x latency —- why?</li>
+<li>She wants to use tracing but it’s not stable</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-wants-to-use-io-uring"><a class="header" href="#grace-wants-to-use-io-uring">Grace wants to use io-uring</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td>not yet written</td><td>carllerche?</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>there are existing crates, which to use?
+<ul>
+<li><a href="https://github.com/ringbahn/ringbahn">ringbahn</a></li>
+<li><a href="https://github.com/DataDog/glommio">glommio</a></li>
+<li><a href="https://crates.io/crates/rio">rio</a> -- &quot;but users should beware that use-after-free bugs are still possible without unsafe when using rio.&quot;</li>
+<li><a href="https://github.com/tokio-rs/io-uring">tokio-rs/io-uring</a></li>
+<li><a href="https://github.com/quininer/ritsu">quininer/ritsu</a></li>
+<li>...and probably more</li>
+</ul>
+</li>
+<li>the AsyncRead trait is not a perfect fit</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="niklaus-goes-to-write-slow-but-its-annoying"><a class="header" href="#niklaus-goes-to-write-slow-but-its-annoying">Niklaus goes to write SLOW but it’s annoying</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#niklaus-the-developer-building-generic-rust-libraries-and-frameworks">Niklaus</a></td><td>not yet written</td><td>seanmonstar?</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>async fns in traits maybe come into this story?</li>
+<li>to make it work across many runtimes he has to juggle a lot of feature gates </li>
+<li>the AsyncRead trait is in the futures crate, but he can’t tell how stable that crate is — can he rely on it in his public interface? Can he call that 1.0?
+<ul>
+<li>futures crate makes a breaking change, is he screwed?</li>
+</ul>
+</li>
+<li>he has to copy and paste a bunch of random utilities that everyone seems to use but which aren’t defined in a shared crate that has a stable version
+<ul>
+<li>xxx some of them are in futures??</li>
+</ul>
+</li>
+<li>maybe he wants to target WASM?</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="niklaus-builds-his-web-framework"><a class="header" href="#niklaus-builds-his-web-framework">Niklaus builds his web framework</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#niklaus-the-developer-building-generic-rust-libraries-and-frameworks">Niklaus</a></td><td>not yet written</td><td>✋ <a href="./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>He is frustrated by lack of async trait support</li>
+<li>He uses the <code>async-trait</code> procedural macro but it feels weird to have that in a public, stable API.</li>
+<li>As with the SLOW library, he would to make it independent of a specific runtime, but that's very difficult</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="barbara-tries-to-use-the-embedded-runtime"><a class="header" href="#barbara-tries-to-use-the-embedded-runtime">Barbara tries to use the embedded runtime</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="./characters.html#barbara-embedded-developer-doing-networking">Barbara</a></td><td>not yet written</td><td>✋ <a href="./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>She doesn’t want to use allocation and <code>dyn Trait</code> but async fns in traits are not available on stable rust</li>
+<li>She is not wanting to use nightly</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../vision/characters.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../vision/shiny_future.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../vision/characters.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../vision/shiny_future.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

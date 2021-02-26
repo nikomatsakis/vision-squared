@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> 👋🏽 Welcome</a></li><li class="chapter-item expanded "><a href="vision.html"><strong aria-hidden="true">2.</strong> 🔮 The vision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vision/tenets.html"><strong aria-hidden="true">2.1.</strong> ✏️ Design tenets for vision docs</a></li><li class="chapter-item expanded "><a href="vision/characters.html"><strong aria-hidden="true">2.2.</strong> 🙋‍♀️ Cast of characters</a></li><li class="chapter-item expanded "><a href="vision/status_quo.html"><strong aria-hidden="true">2.3.</strong> 😱 Status quo</a></li><li class="chapter-item expanded "><a href="vision/shiny_future.html"><strong aria-hidden="true">2.4.</strong> ✨ Shiny future</a></li><li class="chapter-item expanded "><a href="vision/roadmap.html"><strong aria-hidden="true">2.5.</strong> 📅 Roadmap for 2021</a></li><li class="chapter-item expanded "><a href="vision/how_to_vision_doc.html"><strong aria-hidden="true">2.6.</strong> ❓How to vision doc</a></li></ol></li><li class="chapter-item expanded "><a href="design_docs.html"><strong aria-hidden="true">3.</strong> 🔬 Design docs</a></li><li class="chapter-item expanded "><a href="conversations.html"><strong aria-hidden="true">4.</strong> 💬 Conversations</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,7 +165,559 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <h1 id="-welcome"><a class="header" href="#-welcome">👋🏽 Welcome</a></h1>
+<p>Welcome to the Vision² website!</p>
+<p><strong>Leads</strong>: <a href="https://github.com/nikomatsakis">@nikomatsakis</a> and Shane Miller</p>
+<h2 id="what-is-this"><a class="header" href="#what-is-this">What is this?</a></h2>
+<p>The Vision² is a &quot;vision doc for vision docs&quot;. Vision docs are an experimental way to help build and establish consensus for open source projects -- though really they could work for any distributed project.</p>
+<h2 id="license"><a class="header" href="#license">License</a></h2>
+<p>Licensed under either of</p>
+<ul>
+<li>Apache License, Version 2.0 (<a href="LICENSE-APACHE">LICENSE-APACHE</a> or http://www.apache.org/licenses/LICENSE-2.0)</li>
+<li>MIT license (<a href="LICENSE-MIT">LICENSE-MIT</a> or http://opensource.org/licenses/MIT)</li>
+</ul>
+<p>at your option.</p>
+<h3 id="contribution"><a class="header" href="#contribution">Contribution</a></h3>
+<p>Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in this crate by you, as defined in the Apache-2.0 license, shall
+be dual licensed as above, without any additional terms or conditions.</p>
+<h1 id="-the-vision"><a class="header" href="#-the-vision">🔮 The vision</a></h1>
+<h2 id="what-is-this-1"><a class="header" href="#what-is-this-1">What is this</a></h2>
+<p>This section lays out a general vision and set of goals for Async I/O in Rust. This document is being written in January of 2021. The core pieces of async-await are stable, but there remains a lot of work for it to feel like a &quot;first class&quot; feature of Rust. </p>
+<p>This section describes three things:</p>
+<ul>
+<li>The <strong>design tenets</strong>, or principles, that we are using to drive our work on Async I/O in Rust;</li>
+<li>Descriptions of how writing Async I/O code in Rust <strong>feels today</strong>;</li>
+<li>Descriptions of how we think writing Async I/O code in Rust <strong>should feel eventually</strong>.</li>
+</ul>
+<h2 id="status-and-schedule"><a class="header" href="#status-and-schedule">Status and schedule</a></h2>
+<p><strong>This document is currently being formed.</strong> 
+We expect to publish the first version on March 31.
+Once that version is published, we intend to revisit the document once per quarter to keep it up to date.</p>
+<table><thead><tr><th>Phase</th><th>Date</th></tr></thead><tbody>
+<tr><td><strong>Drafting initial stories and proposals</strong></td><td><strong>until March 31</strong></td></tr>
+<tr><td>2021 Q1 revision published</td><td>March 31</td></tr>
+<tr><td>2021 Q2 revision process begins</td><td>June 14 - June 30</td></tr>
+<tr><td>2021 Q2 revision published</td><td>June 30</td></tr>
+<tr><td>2021 Q3 revision process begins</td><td>Sep 13 - Sep 30</td></tr>
+<tr><td>2021 Q3 revision published</td><td>Sep 30</td></tr>
+<tr><td>2021 Q4 revision process begins</td><td>Nov 29 - Dec 10</td></tr>
+<tr><td>2021 Q4 revision published</td><td>Dec 10</td></tr>
+</tbody></table>
+<h2 id="think-big----too-big-if-you-have-to"><a class="header" href="#think-big----too-big-if-you-have-to">Think big -- too big, if you have to</a></h2>
+<p>You'll notice that the ideas in this document are <strong>maximalist and ambitious</strong>. They stake out an opinionated position on how the ergonomics of Async I/O should feel. This position may not, in truth, be attainable, and for sure there will be changes along the way. Sometimes the realities of how computers actually work may prevent us from doing all that we'd like to. That's ok. This is a dream and a goal.</p>
+<h2 id="the-vision-drives-the-work"><a class="header" href="#the-vision-drives-the-work">The vision drives the work</a></h2>
+<p>The vision is not just idle speculation. It is the central document that we use to organize ourselves. When we think about our <a href="./roadmap.html">roadmap</a> for any given year, it is always with the aim of moving us closer to the vision we lay out here. </p>
+<h2 id="this-is-a-group-effort"><a class="header" href="#this-is-a-group-effort">This is a group effort</a></h2>
+<p>As the leads of the Async Foundation group, Niko and Tyler are driving and organizing this document. But writing it and shaping it is a group effort. If you think there is a part of the async experience that is not reflected here, we want to hear from you! Check out the <a href="./vision/how_to_vision_doc.html">How to vision doc</a> for more details on how to contribute.</p>
+<h1 id="-design-tenets-for-async"><a class="header" href="#-design-tenets-for-async">✏️ Design tenets for async</a></h1>
+<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
+<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
+</tbody></table>
+<p><strong>Draft status.</strong> These tenets are a first draft. nikomatsakis plans to incorporate feedback and revise them before they are finalized.</p>
+<p>The design tenets describe the key principles that drive our work on async. Hopefully, we are able to achieve and honor all of them all of the time. Sometimes, though, they come into conflict, and we have to pick -- in that case, we prefer the tenet earlier in the list.</p>
+<ol>
+<li><strong>Minimal overhead.</strong> Rust Async I/O performance should compare favourably with any other language. In the extreme case, it should be possible to use async/await without any required allocation, although this is unlikely to be a common case in production systems.</li>
+<li><strong>Easy to get started, but able to do anything you want.</strong> We should make it simple to write Async I/O code and get things that work reasonably well, but it should be possible for people to obtain fine-grained control as needed.</li>
+<li><strong>Async is like sync, but with blocking points clearly identified.</strong> At the highest level, writing a simple program using asynchronous I/O in Rust should be analogous to writing one that uses synchronous I/O, except that one adds <code>async</code> in front of function declarations and adds <code>.await</code> after each call. We should aim for analogous design between synchronous and asynchronous equivalents. Similarly, streams should be like asynchronous iterators. One should be able to use the same sort of combinators with streams and to iterate over them in analogous ways.</li>
+<li><strong>No one true runtime.</strong> We need to be able to hook into existing runtimes in different environments, from embedded environments to runtimes like node.js. Specialized systems need specialized runtimes. </li>
+<li><strong>Library ecosystem is key.</strong> We want to have a strong ecosystem of async crates, utilities, and frameworks. This will require mechanisms to write libraries/utilities/frameworks that are generic and interoperable across runtimes.</li>
+</ol>
+<h2 id="extreme-use-cases"><a class="header" href="#extreme-use-cases">Extreme use cases</a></h2>
+<p>To elaborate on the &quot;minimal overhead&quot; and &quot;easy to get started, but able to do anything you want&quot; tenet, here are a set of use cases:</p>
+<ul>
+<li><strong>Single-threaded executors:</strong> Some systems tie each task to a single thread; such tasks should be able to access data that is not <code>Send</code> or <code>Sync</code>, and the executor for those tasks should be able to be fully optimized to avoid atomic accesses, etc.</li>
+<li><strong>Multi-threaded executors:</strong> Many systems migrate tasks between threads transparently, and that should be supported as well, though tasks will be required to be <code>Send</code>.</li>
+<li><strong>&quot;Bring your own runtime&quot;:</strong> The Rust language itself should not require that you start threads, use epoll, or do any other particular thing.</li>
+<li><strong>Zero allocation, single task:</strong> Embedded systems might want to be able to have a single task that is polled to completion and which does no allocation whatsoever.</li>
+<li><strong>Multiple runtimes in one process:</strong> Sometimes people have to combine systems, each of which come with their own event loop. We should avoid assuming there is one global event loop in the system. </li>
+<li><strong>Non-Rust based runtimes:</strong> Sometimes people want to integrate into event loops from other, non-Rust-based systems.</li>
+</ul>
+<h1 id="-cast-of-characters"><a class="header" href="#-cast-of-characters">🙋‍♀️ Cast of characters</a></h1>
+<h2 id="alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly"><a class="header" href="#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan: the startup guy trying to stand-up a web stack quickly</a></h2>
+<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
+<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
+</tbody></table>
+<p>Alan is a &quot;full stack&quot; JavaScript developer. He's bounced around from startup to startup building things both in node.js and doing front-end work. Alan was recently hired at <code>fido.io</code>, a pioneering dog-food delivery business that uses a combination of deep learning and <a href="https://en.wikipedia.org/wiki/Internet_of_things">IoT</a> to select the optimum dog food for your pet's health. Fido has chosen to build their networking stack in Rust. They were already using Rust for their deep learning code and they wanted to keep to a single language. For the time being, their needs are relatively simple. They want to stand up a server that serves up pages and connects to various back-end and cloud services.</p>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li>XXX</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-the-principal-engineer-hacking-on-t4-a-new-storage-service"><a class="header" href="#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace: the principal engineer hacking on T4, a new storage service</a></h2>
+<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
+<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
+</tbody></table>
+<p>Grace works on T4, a cloud storage service that is used in a lot of the world's largest web properties. She is a principal engineer who has been building high-performance networking systems in C for a number of years. T4 recently switched to Rust for the new component they are building. They are hoping it will help them avoid security vulnerabilities without compromising on performance. Huma has been using Rust for a while now and she's starting to feel fairly comfortable with it. The new T4 component is getting ready to go into production soon; she's hoping they'll be able to meet their performance goals.</p>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li>XXX</li>
+</ul>
+</p>
+</details>
+<h2 id="niklaus-the-developer-building-generic-rust-libraries-and-frameworks"><a class="header" href="#niklaus-the-developer-building-generic-rust-libraries-and-frameworks">Niklaus: the developer building generic Rust libraries and frameworks</a></h2>
+<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
+<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
+</tbody></table>
+<p>Niklaus is an open source developer building various generic libraries and frameworks. He is hoping to create successful open source projects that are widely used in all sorts of applications and which have a lively community around them. Niklaus is currently working on the following projects:</p>
+<ul>
+<li><strong>SLOW</strong>, a Rust implementation of a fancy new communications protocol that is gaining in popularity.</li>
+<li><strong>Hyperactive</strong>, a Rust web framework meant to make it easy to standup a web server and start serving requests. Probably exactly what Alan wants!</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li>XXX</li>
+</ul>
+</p>
+</details>
+<h2 id="barbara-embedded-developer-doing-networking"><a class="header" href="#barbara-embedded-developer-doing-networking">Barbara: embedded developer doing networking</a></h2>
+<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
+<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
+</tbody></table>
+<p>Barbara is building a sensor grid system using Rust. The sensors communicate wirelessly to relay their results, and Barbara is responsible for the networking component. These sensors are relatively simple devices with limited resources, so she is coding in a <code>#[no_std]</code> environment and is very careful about things like allocation.</p>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li>XXX</li>
+</ul>
+</p>
+</details>
+<h1 id="-status-quo-stories"><a class="header" href="#-status-quo-stories">😱 Status quo stories</a></h1>
+<h2 id="what-is-this-2"><a class="header" href="#what-is-this-2">What is this</a></h2>
+<p>The &quot;status quo&quot; stores are here to state our &quot;theory of the case&quot;. That is, they present (and prove) our hypotheses as to what the various challenges are for users of Async I/O in Rust. These hypotheses are presented in narrative form, by telling the story of a specific <a href="vision/./characters.html">character</a> as they try (and typically fail in dramatic fashion) to achieve their goals.</p>
+<h3 id="based-on-a-true-story"><a class="header" href="#based-on-a-true-story">Based on a true story</a></h3>
+<p>These stories are not made up. They are always based on real-life experiences of actual people. Each story contains a &quot;Frequently Asked Questions&quot; section, and that will include notes the sources used to create the story. In some cases, it may link to notes or summaries in the <a href="vision/../conversations.html">conversations</a> section, though that is not required. The &quot;Frequently Asked Questions&quot; section also contains a summary of what the &quot;morals&quot; of the story are (i.e., what are the key takeaways), along with answers to questions that people have raised along the way.</p>
+<h3 id="the-stories-provide-data-we-use-to-prioritize-not-a-prioritization-itself"><a class="header" href="#the-stories-provide-data-we-use-to-prioritize-not-a-prioritization-itself">The stories provide data we use to prioritize, not a prioritization itself</a></h3>
+<p><strong>Just because a user story is represented here doesn't mean we're going to be able to fix it right now.</strong> Some of these user stories will indicate more severe problems than others. As we consider the stories, we'll select some subset to try and address; that choice is reflected in the <a href="vision/./roadmap.html">roadmap</a>.</p>
+<h3 id="help-wanted"><a class="header" href="#help-wanted">Help wanted!</a></h3>
+<p>This is not a static document! There are lots of ways you can help to expand it! Take a look at the <a href="vision/./how_to_vision_doc.html">How to Vision Doc</a> for more details.</p>
+<h2 id="alan-has-trouble-getting-started"><a class="header" href="#alan-has-trouble-getting-started">Alan has trouble getting started</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a></td><td><a href="vision/./shiny_future.html#alan-has-a-blast-standing-up-a-web-server">Alan has a blast standing up a web server</a></td><td>Shane and estebank</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>At first, <a href="vision/./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a> can't find docs about how to do async stuff</li>
+<li>Alan finds learning Rust challenging enough, learning async at the same time is even harder (<a href="https://twitter.com/richardsabow/status/1345815115745140736">cite</a>)</li>
+<li>Alan has trouble picking a runtime, it's kind of overwhelming -- <a href="https://twitter.com/EchoRior/status/1359965313979346944">what if he picks the wrong one?</a></li>
+<li>Alan is confused because adding async/await doesn't seem to be getting him concurrency</li>
+<li>Alan tries to connect to a database but the docs aren't very comprehensive</li>
+<li>Alan doesn't like the web framework he's using, but the one he likes requires a different runtime, and switching between them is a real pain</li>
+<li>Alan quits and becomes a <a href="https://www.pbs.org/show/best-joy-painting/">Bob Ross</a> groupy</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>Many people cite that picking a runtime is a stressful choice.</li>
+<li>People want to be able to 'mix and match' the runtime, web framework, and other libraries and have things just work.</li>
+<li>Information on async-await is hard to find and not yet well integrated into standard Rust learning materials.</li>
+<li>Rust's async model is different from other languages (JavaScript, C#) and that can be confusing.</li>
+<li>Learning async Rust is strictly more work than learning sync Rust, which is already harder than we'd like.</li>
+<li>The async book as written gives way too many low-level details way too early.</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>Not at all. This is based on a number of sources, including tweets but also personal conversations.</li>
+<li>Some sources can be found in the conversations page:
+<ul>
+<li><a href="vision/../conversations/2021-02-12-Twitter-Thread.html">2021-02-12 Twitter thread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Why doesn't Alan go to the tutorial for some specific runtime?</strong>
+<ul>
+<li>It's true that there are a number of excellent tutorials out there, like the one from <a href="https://tokio.rs/tokio/tutorial">tokio</a> and <a href="https://book.async.rs/tutorial/index.html">async-std</a>. Unfortunately, Alan doesn't know about those runtimes yet! Alan wants to learn Rust, so that's where he started.</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="alan-finds-the-experience-of-writing-async-code-is-a-lot-more-painful-than-sync-code"><a class="header" href="#alan-finds-the-experience-of-writing-async-code-is-a-lot-more-painful-than-sync-code">Alan finds the experience of writing async code is a lot more painful than sync code</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a></td><td>not yet written</td><td>✋ <a href="vision/./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li><a href="vision/./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a> gets inscrutable backtraces</li>
+<li>Alan tries to write a recursive function and gets a weird error</li>
+<li>Alan gets confusing diagnostics because of incompatible versions of the futures crate</li>
+<li>Alan gets a confusing compiler error about a variable being live across an await point that doesn’t seem to be live</li>
+<li>Bobs gets an error message that exceeds the memory limits in his terminal program, crashes his computer, and forces him to reboot</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-tries-to-write-a-stream-and-pin-breaks-her-mind"><a class="header" href="#grace-tries-to-write-a-stream-and-pin-breaks-her-mind">Grace tries to write a stream and pin breaks her mind</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td><a href="vision/./shiny_future.html#grace-discovers-the-joy-of-generators">Grace discovers the joy of generators</a></td><td>✋ <a href="vision/./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>We need to make this better -- pick some specific problem Grace was trying to solve</li>
+<li>She winds up implementing a stream and has to use pin and it's hard</li>
+<li>we don’t currently provide any language support for doing this</li>
+<li>so you have to work with pin</li>
+<li>it is very confusing and nobody really understands it</li>
+<li>she doesn’t get parallel like she wanted</li>
+<li>she switches to a stream of futures </li>
+<li>it kind of works but it’s a pain to maintain and she doesn’t like fixing bugs in that code
+<ul>
+<li>she transfers to another team and somebody else deletes the file, starts over, and repeats her experience</li>
+</ul>
+</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-deploys-her-service-and-hits-obstacles"><a class="header" href="#grace-deploys-her-service-and-hits-obstacles">Grace deploys her service and hits obstacles</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td><a href="vision/./shiny_future.html#grace-deploys-her-service-and-is-able-to-fix-problems">Grace deploys her service and is able to fix problems</a></td><td>pnkfelix?</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>She gets stack traces from her production users and they are 10s of KB and she can’t make heads or tails of them
+<ul>
+<li>Back in the olden days of C# they were able to fix bugs more often than not based just on the stack trace, but now they can’t even figure out what code it is talking about</li>
+</ul>
+</li>
+<li>Tasks are stuck</li>
+<li>Performance is good but one customer has 10x latency —- why?</li>
+<li>She wants to use tracing but it’s not stable</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="grace-wants-to-use-io-uring"><a class="header" href="#grace-wants-to-use-io-uring">Grace wants to use io-uring</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td>not yet written</td><td>carllerche?</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>there are existing crates, which to use?
+<ul>
+<li><a href="https://github.com/ringbahn/ringbahn">ringbahn</a></li>
+<li><a href="https://github.com/DataDog/glommio">glommio</a></li>
+<li><a href="https://crates.io/crates/rio">rio</a> -- &quot;but users should beware that use-after-free bugs are still possible without unsafe when using rio.&quot;</li>
+<li><a href="https://github.com/tokio-rs/io-uring">tokio-rs/io-uring</a></li>
+<li><a href="https://github.com/quininer/ritsu">quininer/ritsu</a></li>
+<li>...and probably more</li>
+</ul>
+</li>
+<li>the AsyncRead trait is not a perfect fit</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="niklaus-goes-to-write-slow-but-its-annoying"><a class="header" href="#niklaus-goes-to-write-slow-but-its-annoying">Niklaus goes to write SLOW but it’s annoying</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#niklaus-the-developer-building-generic-rust-libraries-and-frameworks">Niklaus</a></td><td>not yet written</td><td>seanmonstar?</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>async fns in traits maybe come into this story?</li>
+<li>to make it work across many runtimes he has to juggle a lot of feature gates </li>
+<li>the AsyncRead trait is in the futures crate, but he can’t tell how stable that crate is — can he rely on it in his public interface? Can he call that 1.0?
+<ul>
+<li>futures crate makes a breaking change, is he screwed?</li>
+</ul>
+</li>
+<li>he has to copy and paste a bunch of random utilities that everyone seems to use but which aren’t defined in a shared crate that has a stable version
+<ul>
+<li>xxx some of them are in futures??</li>
+</ul>
+</li>
+<li>maybe he wants to target WASM?</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="niklaus-builds-his-web-framework"><a class="header" href="#niklaus-builds-his-web-framework">Niklaus builds his web framework</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#niklaus-the-developer-building-generic-rust-libraries-and-frameworks">Niklaus</a></td><td>not yet written</td><td>✋ <a href="vision/./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>He is frustrated by lack of async trait support</li>
+<li>He uses the <code>async-trait</code> procedural macro but it feels weird to have that in a public, stable API.</li>
+<li>As with the SLOW library, he would to make it independent of a specific runtime, but that's very difficult</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h2 id="barbara-tries-to-use-the-embedded-runtime"><a class="header" href="#barbara-tries-to-use-the-embedded-runtime">Barbara tries to use the embedded runtime</a></h2>
+<table><thead><tr><th>Character</th><th>Shiny Future</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#barbara-embedded-developer-doing-networking">Barbara</a></td><td>not yet written</td><td>✋ <a href="vision/./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>She doesn’t want to use allocation and <code>dyn Trait</code> but async fns in traits are not available on stable rust</li>
+<li>She is not wanting to use nightly</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+<ul>
+<li><strong>What are the morals of the story?</strong>
+<ul>
+<li>(Explain your key points here)</li>
+</ul>
+</li>
+<li><strong>Are you just making this stuff up?</strong>
+<ul>
+<li>(Cite important sources here; feel free to add files into the conversations folder for more details)</li>
+</ul>
+</li>
+</ul>
+</p>
+</details>
+<h1 id="-shiny-future-where-we-want-to-get-to"><a class="header" href="#-shiny-future-where-we-want-to-get-to">✨ Shiny future: Where we want to get to</a></h1>
+<p>The &quot;shiny future&quot; is here to tell you what we are trying to build over the next 2-3 years. That is, it presents our &quot;best guess&quot; as to what will look like a few years from now. When describing specific features, it also embeds links to <a href="vision/../design_notes.html">design notes</a> that describe the constraints and general plans around that feature.</p>
+<p>Predicting the future is a tricky business! Many of the things described in the &quot;shiny future&quot; doc have a lot of uncertainty. We fully expect that the designs and narratives described in this document will change as we work towards realizing them. When there are areas of particular uncertainty, we use the Frequently Asked Questions and the design docs to call them out.</p>
+<p><strong>Help wanted.</strong> This is not a static document! There are lots of ways you can help to expand it! Take a look at the <a href="vision/./how_to_vision_doc.html">How to Vision Doc</a> for more details.</p>
+<h2 id="alan-has-a-blast-standing-up-a-web-server"><a class="header" href="#alan-has-a-blast-standing-up-a-web-server">Alan has a blast standing up a web server</a></h2>
+<table><thead><tr><th>Character</th><th>Status quo</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#alan-the-startup-guy-trying-to-stand-up-a-web-stack-quickly">Alan</a></td><td><a href="vision/./status_quo.html#alan-has-trouble-getting-started">Alan has trouble getting started</a></td><td>Shane and estebank</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<p>...</p>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+* Write these
+</p>
+</details>
+<h2 id="grace-deploys-her-service-and-is-able-to-fix-problems"><a class="header" href="#grace-deploys-her-service-and-is-able-to-fix-problems">Grace deploys her service and is able to fix problems</a></h2>
+<table><thead><tr><th>Character</th><th>Status quo</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td><a href="vision/./status_quo.html#grace-deploys-her-service-and-hits-obstacles">Grace deploys her service and hits obstacles</a></td><td>pnkfelix</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>Grace launches service</li>
+<li>Hits a stalled task, debugs the problem</li>
+<li>Customers complain about poor performance, she tracks it down</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+* Write these
+</p>
+</details>
+<h2 id="grace-discovers-the-joy-of-generators"><a class="header" href="#grace-discovers-the-joy-of-generators">Grace discovers the joy of generators</a></h2>
+<table><thead><tr><th>Character</th><th>Status quo</th><th>Assigned To</th></tr></thead><tbody>
+<tr><td><a href="vision/./characters.html#grace-the-principal-engineer-hacking-on-t4-a-new-storage-service">Grace</a></td><td><a href="vision/./status_quo.html#grace-tries-to-write-a-stream-and-pin-breaks-her-mind">Grace tries to write a stream and pin breaks her mind</a></td><td>✋ <a href="vision/./how_to_vision_doc.html#how-can-i-finish-or-add-a-section-to-the-document">Volunteer wanted</a> ✋</td></tr>
+</tbody></table>
+<p>Outline:</p>
+<ul>
+<li>Grace uses generators and the code writes itself. It's ALMOST TOO EASY.</li>
+</ul>
+<details><summary>🤔 <b>Frequently Asked Questions</b></summary>
+<p>
+* Write these
+</p>
+</details>
+<h1 id="-the-roadmap-what-were-doing-in-2021"><a class="header" href="#-the-roadmap-what-were-doing-in-2021">📅 The roadmap: what we're doing in 2021</a></h1>
+<p>This page describes the current plans for 2021.
+It is updated on a monthly basis.</p>
+<h2 id="key"><a class="header" href="#key">Key</a></h2>
+<table><thead><tr><th>Emoji</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>🥬</td><td>&quot;Healthy&quot; -- on track with the plan as described in the doc</td></tr>
+<tr><td>✏️</td><td>&quot;Planning&quot; -- Still figuring out the plan</td></tr>
+<tr><td>🤒</td><td>&quot;Worried&quot; -- things are looking a bit tricky, plans aren't working out</td></tr>
+<tr><td>🏖️</td><td>&quot;On vacation&quot; -- taking a break right now</td></tr>
+<tr><td>⚰️</td><td>We gave up on this idea =)</td></tr>
+</tbody></table>
+<h2 id="roadmap-items"><a class="header" href="#roadmap-items">Roadmap items</a></h2>
+<table><thead><tr><th>Plan</th><th>Owner</th><th>Status</th><th>Last updated</th></tr></thead><tbody>
+<tr><td><a href="vision/../design_docs/async_fns_in_traits.html">Async functions in traits</a></td><td>nikomatsakis</td><td>🥬</td><td>2021-02</td></tr>
+</tbody></table>
+<h1 id="-how-to-vision-doc"><a class="header" href="#-how-to-vision-doc">❓ How to vision doc</a></h1>
+<p>This page describes the process for contributing to the vision doc.</p>
+<h2 id="who-owns-this-document"><a class="header" href="#who-owns-this-document">Who owns this document?</a></h2>
+<p>This document is owned and maintained by the leads of the Async Foundations Working Group.
+They decide what content to accept or reject. 
+This decision is made in consultation with the Rust teams that will be making the ultimate decisions. 
+For example, if a design doc or part of the shiny future is describing a new language feature, the leads ought to  discuss that with the language design team, since that team will ultimately have to approve the RFCs for its design.</p>
+<h2 id="how-can-i-finish-or-add-a-section-to-the-document"><a class="header" href="#how-can-i-finish-or-add-a-section-to-the-document">How can I finish or add a section to the document?</a></h2>
+<p>If you'd like to volunteer to finish a section in the document, ping nikomatsakis and tmandry on Zulip, either in privmsg or the <code>#wg-async-foundations</code> stream.</p>
+<p>If you think you have a new section you'd like to add, write up a short description or general outline and float it on <code>#wg-async-foundations</code>. Again, please ping nikomatsakis and tmandry.</p>
+<p>Assuming you get positive feedback, you can open a PR. The PR should add one or more of the following things:</p>
+<ul>
+<li>A new section in the <a href="vision/status_quo.html">status quo</a> document, or edits to an existing section
+<ul>
+<li>This may be accompanied by new evidence, though it doesn't have to be.</li>
+</ul>
+</li>
+<li>A new section in the <a href="vision/shiny_future.html">shiny future</a> document, or edits to an existing section
+<ul>
+<li>This may be accompanied by new <a href="vision/../design_docs.html">design docs</a>, or edits to existing ones.</li>
+<li>It doesn't have to be, but the PR discussion process may lead to requests to write design docs to help people imagine how this future could come about.</li>
+</ul>
+</li>
+<li>New entries in the <a href="vision/roadmap.html">roadmap</a>, for work you propose to do.
+<ul>
+<li>This may be accompanied by new design docs, or edits to existing ones.</li>
+</ul>
+</li>
+</ul>
+<h2 id="editing-the-narratives"><a class="header" href="#editing-the-narratives">Editing the narratives</a></h2>
+<p>The narratives in the vision doc are there to establish the state of how things are (the &quot;status quo&quot;), and the ultimate goals we are working towards (the &quot;shiny future&quot;). The goals in the shiny future are not necessarily meant to be achievable in a short time frame. Think about how you would like things to look 3-4 years down the road -- that is the &quot;shiny future&quot; we are describing.</p>
+<p>Each section have very different characteristics. Here is a summary:</p>
+<ul>
+<li><a href="vision/status_quo.html">Status quo</a> narrative
+<ul>
+<li><em>establishes:</em> problem framing</li>
+<li><em>identifies:</em> root problems</li>
+<li><em>provides:</em> supporting evidence for your theses</li>
+<li><em>links to:</em> evidence, if you want to provide it</li>
+</ul>
+</li>
+<li><a href="vision/shiny_future.html">Shiny future</a> narrative
+<ul>
+<li><em>establishes:</em> north star</li>
+<li><em>identifies:</em> key elements of the solution</li>
+<li><em>provides:</em> a detailed description of how things should work for Rust's users down the road</li>
+<li><em>links to:</em> design notes</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-frequently-asked-questions-section"><a class="header" href="#the-frequently-asked-questions-section">The &quot;Frequently Asked Questions&quot; section</a></h2>
+<p>The FAQ section is there to elaborate on the narrative and to answer common questions that people have when reading it. Assembling the FAQ always begins with a few required questions. After that, you can add whatever questions come to mind -- but usually the FAQ is populated by literally recording your answers to the questions that people ask you. </p>
+<h3 id="required-and-suggested-faqs"><a class="header" href="#required-and-suggested-faqs">Required and suggested FAQs</a></h3>
+<p>The required FAQs vary by depending on what kind of section it is.</p>
+<ul>
+<li>Status quo
+<ul>
+<li>What are the morals of the story?</li>
+<li>Are you just making this stuff up?</li>
+<li>In addition to the above, add FAQs </li>
+</ul>
+</li>
+<li>Shiny future
+<ul>
+<li>What is <em>NAME</em> most excited about and why?</li>
+<li>What is <em>NAME</em> most disappointed with?</li>
+<li>What key things did the Rust org do to make this happen?</li>
+<li>What things did the other groups do to make this happen?</li>
+</ul>
+</li>
+<li>Characters
+<ul>
+<li>Which of the async tenets would NAME put first and which would they put last? Why?</li>
+</ul>
+</li>
+<li>Design docs
+<ul>
+<li>What assumptions are you using as the basis for this design?</li>
+<li>Why not do ALTERNATIVE-X? (For each compelling alternative)</li>
+<li>What design decisions cannot easily be reversed?</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-roadmap"><a class="header" href="#the-roadmap">The roadmap</a></h2>
+<p>The roadmap describes the work we plan to do over the next year. </p>
+<h1 id="-design-documents"><a class="header" href="#-design-documents">🔬 Design documents</a></h1>
+<p>The <strong>design documents</strong> (or &quot;design docs&quot;, more commonly) describe potential designs. These docs vary greatly in terms of their readiness to be implemented:</p>
+<ul>
+<li>Early on, they describe a vague idea for a future. Often this takes the shape of capturing constraints on the solution, rather than the solution itself.</li>
+<li>When a feature is getting ready to ship, they can evolve into a full blown RFC, with links to tracking issues or other notes.</li>
+</ul>
+<h2 id="early-stage-design-docs"><a class="header" href="#early-stage-design-docs">Early stage design docs</a></h2>
+<p>In the early stages, design docs are meant to capture interesting bits of &quot;async design space&quot;. They are often updated to capture the results of a fruitful conversation or thread which uncovered contraints or challenges in solving a particular problem. They will capture a combination of the following:</p>
+<ul>
+<li>use cases;</li>
+<li>interesting aspects to the design;</li>
+<li>alternatives;</li>
+<li>interactions with other features.</li>
+</ul>
+<h2 id="late-stage-design-docs"><a class="header" href="#late-stage-design-docs">Late stage design docs</a></h2>
+<p>As a design progresses, the doc should get more and more complete, until it becomes something akin to an RFC. (Often, at that point, we will expand the design document into a directory, adding an actual RFC draft and other contents; those things can live in this repo or elsewhere, depending.) Once we decide to put a design doc onto the roadmap, it will also contain links to tracking issues or other places to track the status.</p>
+<h1 id="-conversations"><a class="header" href="#-conversations">💬 Conversations</a></h1>
+<p>This section contains notes and summaries from conversations that we have had with people are using Rust and async and describing their experiences. These conversations and links are used as &quot;evidence&quot; when building <a href="vision/status_quo.html">the &quot;status quo&quot; section</a>.</p>
+<h2 id="not-exhaustive-nor-mandatory"><a class="header" href="#not-exhaustive-nor-mandatory">Not exhaustive nor mandatory</a></h2>
+<p>This section is not meant to be an &quot;exhaustive list&quot; of all sources. That would be impossible. Many conversations are short, not recorded, and hard to summaize. Others are subject to NDA. We certainly don't require that all claims in the <a href="vision/status_quo.html">status quo</a> section are backed by evidence found here. Still, it's useful to have a place to dump notes and things for future reference.</p>
 
                     </main>
 
