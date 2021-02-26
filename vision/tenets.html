@@ -163,29 +163,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="-design-tenets-for-async"><a class="header" href="#-design-tenets-for-async">✏️ Design tenets for async</a></h1>
-<table><thead><tr><th>Status</th><th>Owner</th></tr></thead><tbody>
-<tr><td>⚠️ Draft ⚠️</td><td>nikomatsakis</td></tr>
-</tbody></table>
-<p><strong>Draft status.</strong> These tenets are a first draft. nikomatsakis plans to incorporate feedback and revise them before they are finalized.</p>
-<p>The design tenets describe the key principles that drive our work on async. Hopefully, we are able to achieve and honor all of them all of the time. Sometimes, though, they come into conflict, and we have to pick -- in that case, we prefer the tenet earlier in the list.</p>
+                        <h1 id="-design-tenets-for-vision-docs"><a class="header" href="#-design-tenets-for-vision-docs">✏️ Design tenets for vision docs</a></h1>
 <ol>
-<li><strong>Minimal overhead.</strong> Rust Async I/O performance should compare favourably with any other language. In the extreme case, it should be possible to use async/await without any required allocation, although this is unlikely to be a common case in production systems.</li>
-<li><strong>Easy to get started, but able to do anything you want.</strong> We should make it simple to write Async I/O code and get things that work reasonably well, but it should be possible for people to obtain fine-grained control as needed.</li>
-<li><strong>Async is like sync, but with blocking points clearly identified.</strong> At the highest level, writing a simple program using asynchronous I/O in Rust should be analogous to writing one that uses synchronous I/O, except that one adds <code>async</code> in front of function declarations and adds <code>.await</code> after each call. We should aim for analogous design between synchronous and asynchronous equivalents. Similarly, streams should be like asynchronous iterators. One should be able to use the same sort of combinators with streams and to iterate over them in analogous ways.</li>
-<li><strong>No one true runtime.</strong> We need to be able to hook into existing runtimes in different environments, from embedded environments to runtimes like node.js. Specialized systems need specialized runtimes. </li>
-<li><strong>Library ecosystem is key.</strong> We want to have a strong ecosystem of async crates, utilities, and frameworks. This will require mechanisms to write libraries/utilities/frameworks that are generic and interoperable across runtimes.</li>
+<li><strong>Describe the problems you see honestly.</strong> </li>
+<li><strong>Establish the long-term vision first.</strong> </li>
+<li><strong>Customed focused.</strong> </li>
 </ol>
-<h2 id="extreme-use-cases"><a class="header" href="#extreme-use-cases">Extreme use cases</a></h2>
-<p>To elaborate on the &quot;minimal overhead&quot; and &quot;easy to get started, but able to do anything you want&quot; tenet, here are a set of use cases:</p>
-<ul>
-<li><strong>Single-threaded executors:</strong> Some systems tie each task to a single thread; such tasks should be able to access data that is not <code>Send</code> or <code>Sync</code>, and the executor for those tasks should be able to be fully optimized to avoid atomic accesses, etc.</li>
-<li><strong>Multi-threaded executors:</strong> Many systems migrate tasks between threads transparently, and that should be supported as well, though tasks will be required to be <code>Send</code>.</li>
-<li><strong>&quot;Bring your own runtime&quot;:</strong> The Rust language itself should not require that you start threads, use epoll, or do any other particular thing.</li>
-<li><strong>Zero allocation, single task:</strong> Embedded systems might want to be able to have a single task that is polled to completion and which does no allocation whatsoever.</li>
-<li><strong>Multiple runtimes in one process:</strong> Sometimes people have to combine systems, each of which come with their own event loop. We should avoid assuming there is one global event loop in the system. </li>
-<li><strong>Non-Rust based runtimes:</strong> Sometimes people want to integrate into event loops from other, non-Rust-based systems.</li>
-</ul>
 
                     </main>
 
